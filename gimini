@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeguraNet - Segurança Digital para a Terceira Idade</title>
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        elderlyBlue: '#1e3a8a',
+                        elderlyLightBlue: '#eff6ff',
+                        elderlyYellow: '#fef08a',
+                        elderlyDark: '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos adicionais de acessibilidade que o Tailwind facilita mas que precisamos de controle fino */
+        .font-normal-text {
+            font-size: 1.125rem; /* 18px por padrão para facilitar leitura */
+            line-index: 1.6;
+        }
+        .large-text .font-normal-text {
+            font-size: 1.375rem; /* 22px se aumentado */
+        }
+        .large-text h1 {
+            font-size: 2.5rem !important;
+        }
+        .large-text h2 {
+            font-size: 2rem !important;
+        }
+        .large-text h3 {
+            font-size: 1.6rem !important;
+        }
+        .large-text button, .large-text a {
+            font-size: 1.25rem !important;
+        }
+
+        /* Modo de Alto Contraste */
+        .high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        .high-contrast .bg-white, 
+        .high-contrast .bg-blue-50, 
+        .high-contrast .bg-indigo-50,
+        .high-contrast .bg-elderlyLightBlue,
+        .high-contrast .bg-gray-50,
+        .high-contrast .bg-emerald-50,
+        .high-contrast .bg-red-50 {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border: 2px solid #ffffff !important;
+        }
+        .high-contrast .text-slate-700,
+        .high-contrast .text-gray-600,
+        .high-contrast .text-gray-700,
+        .high-contrast .text-elderlyBlue,
+        .high-contrast .text-indigo-900 {
+            color: #ffffff !important;
+        }
+        .high-contrast button, 
+        .high-contrast a {
+            background-color: #000000 !important;
+            color: #ffff00 !important;
+            border: 2px solid #ffff00 !important;
+        }
+        .high-contrast button:hover, 
+        .high-contrast a:hover
