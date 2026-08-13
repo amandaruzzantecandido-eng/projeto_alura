@@ -1,75 +1,306 @@
+/* RESET E VARIÁVEIS DE ACESSIBILIDADE */
+:root {
+  --cor-fundo: #f4f7f6;
+  --cor-cartao: #ffffff;
+  --cor-principal: #0d5c75;
+  --cor-principal-hover: #083b4b;
+  --cor-secundaria: #198754;
+  --cor-alerta: #d9534f;
+  --cor-texto: #212529;
+  --cor-borda: #cccccc;
+  --escala-fonte: 1;
+  --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* MODO ALTO CONTRASTE */
+body.alto-contraste {
+  --cor-fundo: #000000;
+  --cor-cartao: #121212;
+  --cor-principal: #ffff00;
+  --cor-principal-hover: #e6e600;
+  --cor-secundaria: #00ff00;
+  --cor-alerta: #ff3333;
+  --cor-texto: #ffffff;
+  --cor-borda: #ffffff;
+  --sombra: 0 0 0 2px #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: calc(18px * var(--escala-fonte));
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* BARRA DE FERRAMENTAS DE ACESSIBILIDADE */
+.barra-acessibilidade {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.botao-acessibilidade {
+  background-color: #ffffff;
+  color: #333333;
+  border: 2px solid #ffffff;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.alto-contraste .botao-acessibilidade {
+  background-color: #000000;
+  color: #ffff00;
+  border-color: #ffff00;
+}
+
+.botao-acessibilidade:focus,
+.botao-acessibilidade:hover {
+  outline: 3px solid #ffbf47;
+  background-color: #e6e6e6;
+}
+
+/* CABEÇALHO */
+header {
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  padding: 25px 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--cor-borda);
+}
+
+header h1 {
+  font-size: calc(2rem * var(--escala-fonte));
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+body.alto-contraste header h1,
+body.alto-contraste header p {
+  color: var(--cor-principal);
+}
+
+/* CONTAINER PRINCIPAL */
+.conteiner-principal {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* NAVEGAÇÃO DE ABAS COM APENAS CSS */
+.abas-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.radio-aba {
+  display: none;
+}
+
+.rotulo-aba {
+  flex: 1;
+  min-width: 140px;
+  background-color: var(--cor-cartao);
+  color: var(--cor-texto);
+  border: 3px solid var(--cor-principal);
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: calc(1.1rem * var(--escala-fonte));
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-aba:checked + .rotulo-aba {
+  background-color: var(--cor-principal);
+  color: #ffffff;
+}
+
+body.alto-contraste .radio-aba:checked + .rotulo-aba {
+  color: #000000;
+}
+
+.conteudo-aba {
+  display: none;
+  background-color: var(--cor-cartao);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid var(--cor-borda);
+  box-shadow: var(--sombra);
+  margin-bottom: 30px;
+}
+
+/* LÓGICA DE EXIBIÇÃO DAS ABAS */
+#aba1:checked ~ .conteudo1,
+#aba2:checked ~ .conteudo2,
+#aba3:checked ~ .conteudo3,
+#aba4:checked ~ .conteudo4 {
+  display: block;
+}
+
+/* CARDS DE DICAS */
 .cartao {
-    /* Valores antigos */
-    width: 300px;
-    height: auto;
-    padding: 10px;
-    background-color: #f0f0f0;
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--cor-cartao);
+}
 
+.cartao h3 {
+  font-size: calc(1.3rem * var(--escala-fonte));
+  color: var(--cor-principal);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.cartao {
-    /* Novos valores para testar */
-    width: 260px;       /* Cartao um pouco mais estreito */
-    height: 200px;      /* Altura fixa (cuidado para o texto nao vazar!) */
-    padding: 15px 25px; /* Mais espaco interno nas laterais */
-    background-color: #f0f0f0;
-}by
+.icone-cartao {
+  font-size: 1.5em;
+}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartao Bonito com CSS</title>
-    <style>
-        /* Estilo para centralizar o cartao na tela */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+.etiqueta-alerta {
+  background-color: var(--cor-alerta);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
 
-        /* O SEGREDO ESTA AQUI: */
-        .cartao-bonito {
-            width: 300px;
-            padding: 24px;
-            background-color: #ffffff;
-            
-            /* Bordas arredondadas (suave e moderno) */
-            border-radius: 16px;
-            
-            /* Sombra elegante: deslocamento X, deslocamento Y, desfoque (blur) e cor com transparancia */
-            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
-            
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+body.alto-contraste .etiqueta-alerta {
+  color: #000000;
+  background-color: var(--cor-alerta);
+}
 
-        /* Efeito extra: o cartão flutua um pouco quando você passa o mouse! */
-        .cartao-bonito:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.18);
-        }
+.etiqueta-sucesso {
+  background-color: var(--cor-secundaria);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
 
-        .cartao-bonito h2 {
-            margin-top: 0;
-            color: #333;
-        }
+body.alto-contraste .etiqueta-sucesso {
+  color: #000000;
+}
 
-        .cartao-bonito p {
-            color: #666;
-            line-height: 1.5;
-        }
-    </style>
-</head>
-<body>
+/* LISTAS ACESSÍVEIS */
+ul.lista-verificacao {
+  list-style: none;
+  padding-left: 0;
+}
 
-    <div class="cartao-bonito">
-        <h2>Meu Cartao 🚀</h2>
-        <p>Este cartao esta usando <strong>border-radius</strong> para arredondar os cantos e <strong>box-shadow</strong> para dar esse efeito de profundidade incrível!</p>
-    </div>
+ul.lista-verificacao li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 15px;
+}
 
-</body>
-</html>
+ul.lista-verificacao li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cor-secundaria);
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+/* SIMULAÇÃO DE MENSAGEM (GOLPE) */
+.simulador-chat {
+  background-color: #e5ddd5;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  color: #000000;
+}
+
+.balao-chat {
+  background-color: #ffffff;
+  padding: 12px 15px;
+  border-radius: 10px;
+  max-width: 85%;
+  font-family: sans-serif;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.balao-chat strong {
+  color: #075e54;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* BOTÕES DE AÇÃO GRANDE */
+.botao-acao {
+  display: block;
+  width: 100%;
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  text-align: center;
+  padding: 16px;
+  font-size: calc(1.1rem * var(--escala-fonte));
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  min-height: 54px;
+}
+
+body.alto-contraste .botao-acao {
+  color: #000000;
+}
+
+.botao-acao:hover, .botao-acao:focus {
+  background-color: var(--cor-principal-hover);
+  outline: 3px solid #ffbf47;
+}
+
+/* AJUSTES PARA DISPOSITIVOS MÓVEIS */
+@media (max-width: 600px) {
+  .barra-acessibilidade {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .rotulo-aba {
+    width: 100%;
+  }
+}
